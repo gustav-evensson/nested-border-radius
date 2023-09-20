@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.borderBoxShadow {
+    box-shadow: 0 0 50px 0 inset #82a4c040;
+}
+.borderBoxShadow.inner {
+    box-shadow: 0 0 50px 0 inset #ffffff20;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    @apply bg-paragraph;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    @apply bg-primary hover:bg-secondary transition-all;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    @apply bg-primary hover:bg-secondary transition-all;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb:disabled{
+    @apply bg-primary
+}
+
+.slider::-webkit-slider-thumb:disabled{
+    @apply bg-primary
+}
+
+.slider:disabled{
+    opacity: .2;
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: max-content;
+    padding-left: 32px;
+    margin-top: 24px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #eee;
+    transition: background 200ms;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px #eee inset;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark, .container input:focus ~ .checkmark {
+    background-color: #ccc;
+  } 
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    @apply bg-primary
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    scale: 0;
+    transition: scale 200ms;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    scale: 1;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 4px;
+    width: 7px;
+    height: 12px;
+    @apply border border-background;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
